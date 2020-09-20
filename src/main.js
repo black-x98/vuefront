@@ -20,10 +20,5 @@ new Vue({
       loading: true,
       errored: false
     }
-  },
-  filters: {
-    currencydecimal (value) {
-      return value.toFixed(2)
-    }
   }
 })

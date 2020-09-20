@@ -1,19 +1,18 @@
 <template>
 
-  <vue-tabs @tab-change="handleTabChange">
-
+<div>
     <h1>List of Requests</h1>
       <v-tabs background-color="white" color="blue accent-4" center>
         <v-tab>All Requests</v-tab>
         <v-tab>Accepted</v-tab>
         <v-tab>Rejected</v-tab>
         <v-tab-item v-for="n in 3" :key="n">
-          <v-container fluid>
+          <v-container fluid  max-width="180" >
 
             <v-card-text v-if="n==1">
-              <v-card color=#fefefe outline="true" raised="true" v-for="req in requests" :key="req.product_name">
+              <v-card color=#fefefe outline="true" :raised="true" v-for="req in requests" :key="req.product_name">
                 <div v-if="req.status=='pending'" >
-                <v-layout row wrap :class="`pa-3 project ${req.product_name}`">
+                <v-layout row wrap :class="`pa-1 project ${req.product_name}`">
                   <v-flex xs2 sm2 md2>
                     <div class="caption grey--text" align="center">Product Name</div>
                     <div align="center">{{req.product_name}}</div>
@@ -109,7 +108,7 @@
           </v-container>
         </v-tab-item>
       </v-tabs>
-  </vue-tabs>
+</div>
 </template>
 
 <script>

@@ -9,7 +9,7 @@
         <div align="center">{{product.product-name}}</div>
       </v-flex>
       <v-flex xs2 sm2 md2>
-        <div class="caption grey--text">Price</div>
+        <div class="caption grey--text">Price per Unit</div>
         <div >{{product.price}}</div>
       </v-flex>
       <v-flex xs2 sm2 md2>
@@ -21,15 +21,15 @@
         <div >{{product.qr-code}}</div>
       </v-flex>
 	<v-flex xs2 sm2 md2>
-		<div class="caption grey--text">Actions</div>
-		<div >
-		<v-btn align="left" flat color=#3b5998 class="white--text">
-        <v-icon>edit</v-icon>
-      </v-btn>
+      <div class="caption grey--text">Actions</div>
+      <div >
       <v-btn align="left" flat color=#3b5998 class="white--text">
-        <v-icon>delete</v-icon>
-      </v-btn>
-	</div>
+          <v-icon>edit</v-icon>
+        </v-btn>
+        <v-btn align="left" flat color=#3b5998 class="white--text">
+          <v-icon>delete</v-icon>
+        </v-btn>
+    </div>`
       </v-flex>
     </v-layout>
   </v-card>
