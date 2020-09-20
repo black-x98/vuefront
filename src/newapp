@@ -1,0 +1,30 @@
+<NotepadPlus>
+    <Project name="Project Name">
+        <Folder name="assets">
+            <File name="assets\logo.png" />
+            <File name="assets\logo.svg" />
+        </Folder>
+        <Folder name="components">
+            <File name="components\Navbar.vue" />
+        </Folder>
+        <Folder name="plugins">
+            <File name="plugins\vuetify.js" />
+        </Folder>
+        <Folder name="router">
+            <File name="router\index.js" />
+        </Folder>
+        <Folder name="views">
+            <File name="views\Brands.vue" />
+            <File name="views\Category.vue" />
+            <File name="views\Dashboard.vue" />
+            <File name="views\Groups.vue" />
+            <File name="views\Pending.vue" />
+            <File name="views\Products.vue" />
+            <File name="views\Report.vue" />
+            <File name="views\Settings.vue" />
+            <File name="views\Users.vue" />
+        </Folder>
+        <File name="App.vue" />
+        <File name="main.js" />
+    </Project>
+</NotepadPlus>
