@@ -45,12 +45,7 @@ export default {
         { icon: 'dashboard', text: 'Dashboard', route: '/'},
         { icon: 'person', text: 'Users', route: '/users'},
         { icon: 'category', text: 'Products', route: '/products'},
-        { icon: 'group', text: 'Groups', route: '/groups'},
-        { icon: 'dashboard', text: 'Brands', route: '/brands'},
-        { icon: 'class', text: 'Category', route: '/category'},
-        { icon: 'pending', text: 'Pending Orders', route: '/pending'},
-        { icon: 'circle', text: 'Report', route: '/report'},
-        { icon: 'settings', text: 'Settings', route: '/settings'},
+        { icon: 'star', text: 'Test', route: '/test'},
       ]
     }
   }

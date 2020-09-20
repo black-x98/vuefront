@@ -8203,6 +8203,11 @@ vue-loader@^15.9.2:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
+vue-nav-tabs@^0.5.7:
+  version "0.5.7"
+  resolved "https://registry.yarnpkg.com/vue-nav-tabs/-/vue-nav-tabs-0.5.7.tgz#f9b8c410b43d9af1d92be6454f295af10c884e4a"
+  integrity sha512-Oqq7qnb0/JPAVSqM0haQ9TdEZaTbQq20TVn5ZCmBOu8m9qju9bI8cDdtWGHXSiMkpmhzsT83ybRb7S/+UYXRsw==
+
 vue-router@^3.2.0:
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/vue-router/-/vue-router-3.4.3.tgz#fa93768616ee338aa174f160ac965167fa572ffa"
@@ -8215,6 +8220,11 @@ vue-style-loader@^4.1.0, vue-style-loader@^4.1.2:
   dependencies:
     hash-sum "^1.0.2"
     loader-utils "^1.0.2"
+
+vue-tabs@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/vue-tabs/-/vue-tabs-0.3.1.tgz#9ae7ac25404531898fd3ffcb46ccb9e97fe2adfe"
+  integrity sha512-DrwCf8ZNiUeyhHHlMIx6w+BTgs4guQcNQNaQWMGGz0Op5FnxrHrZkD2dOGLQPRmZDQFjOYxiCvwsBgNVu1IxRQ==
 
 vue-template-compiler@^2.6.11:
   version "2.6.12"

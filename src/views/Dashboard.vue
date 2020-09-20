@@ -1,92 +1,138 @@
 <template>
-  <div class="dashboard">
-    <h1 class="subheading black--text">Dashboard</h1>
-    <h2 class="subheading grey--text">Recent requests</h2>
-    <v-container class="my-5">
 
-      <v-layout row class="mb-3">
-        <v-btn small flat color="grey" @click="sortBy('title')">
-          <v-icon left small>folder</v-icon>
-          <span class="caption text-lowercase">Sort by item name</span>
-        </v-btn>
-        <v-btn small flat color="grey" @click="sortBy('person')">
-          <v-icon left small>person</v-icon>
-          <span class="caption text-lowercase">Sort by person</span>
-        </v-btn>
-      </v-layout>
+  <vue-tabs @tab-change="handleTabChange">
 
-      <v-card color=#fefefe v-for="project in projects" :key="project.title">
-        <v-layout row wrap :class="`pa-3 project ${project.status}`">
-          <v-flex xs12 md6>
-            <div class="caption grey--text">
-              Name of Item
-            </div>
-            <div>
-              {{project.title}}
-            </div>
-          </v-flex>
-          <v-flex xs6 sm4 md2>
-            <div class="black--text">Person</div>
-            <div >{{project.person}}</div>
-          </v-flex>
-          <v-flex xs6 sm4 md2>
-            <div class="black--text">Due date</div>
-            <div>{{project.due}}</div>
-          </v-flex>
-          <v-flex xs2 sm4 md2>
-            <div class="right">
-              <v-chip small :class="`${project.status} caption my-2`">
-                {{ project.status }}
-              </v-chip>
-            </div>
-          </v-flex>
-        </v-layout>
-      </v-card>
+    <h1>List of Requests</h1>
+      <v-tabs background-color="white" color="blue accent-4" center>
+        <v-tab>All Requests</v-tab>
+        <v-tab>Accepted</v-tab>
+        <v-tab>Rejected</v-tab>
+        <v-tab-item v-for="n in 3" :key="n">
+          <v-container fluid>
 
-    </v-container>
-<!--    <v-btn @click="$emit(https://api.mocki.io/v1/b043df5a)"></v-btn>-->
-  </div>
+            <v-card-text v-if="n==1">
+              <v-card color=#fefefe outline="true" raised="true" v-for="req in requests" :key="req.product_name">
+                <div v-if="req.status=='pending'" >
+                <v-layout row wrap :class="`pa-3 project ${req.product_name}`">
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text" align="center">Product Name</div>
+                    <div align="center">{{req.product_name}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">QR Code</div>
+                    <div >{{req.qr_code}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Price</div>
+                    <div >{{req.price}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Quantity</div>
+                    <div >{{req.quantity}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Request Type</div>
+                    <div >{{req.request_type}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Status</div>
+                    <div >{{req.status}}</div>
+                  </v-flex>
+                </v-layout>
+                </div>
+              </v-card>
+            </v-card-text>
+
+            <v-card-text v-if="n==2"><v-card color=#fefefe outline="true" raised="true" v-for="req in requests" :key="req.product_name">
+              <div v-if="req.status=='accepted'" >
+                <v-layout row wrap :class="`pa-3 project ${req.qr_code}`">
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text" align="center">Product Name</div>
+                    <div align="center">{{req.product_name}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">QR Code</div>
+                    <div >{{req.qr_code}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Price</div>
+                    <div >{{req.price}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Quantity</div>
+                    <div >{{req.quantity}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Request Type</div>
+                    <div >{{req.request_type}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Status</div>
+                    <div >{{req.status}}</div>
+                  </v-flex>
+                </v-layout>
+              </div>
+            </v-card>
+            </v-card-text>
+
+            <v-card-text v-if="n==3"><v-card color=#fefefe outline="true" raised="true" v-for="req in requests" :key="req.product_name">
+              <div v-if="req.status=='rejected'" >
+                <v-layout row wrap :class="`pa-3 project ${req.qr_code}`">
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text" align="center">Product Name</div>
+                    <div align="center">{{req.product_name}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">QR Code</div>
+                    <div >{{req.qr_code}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Price</div>
+                    <div >{{req.price}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Quantity</div>
+                    <div >{{req.quantity}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Request Type</div>
+                    <div >{{req.request_type}}</div>
+                  </v-flex>
+                  <v-flex xs2 sm2 md2>
+                    <div class="caption grey--text">Status</div>
+                    <div >{{req.status}}</div>
+                  </v-flex>
+                </v-layout>
+              </div>
+            </v-card>
+            </v-card-text>
+          </v-container>
+        </v-tab-item>
+      </v-tabs>
+  </vue-tabs>
 </template>
 
 <script>
-// @ is an alias to /src
 export default {
-  name: 'Dashboard',
-  data() {
+  name: "Dashboard",
+  data()
+  {
     return {
-      projects: [
-        {title: 'Construction Material', person:'TTTTT', due:'1st Jan 2021', status:"pending"},
-        {title: 'Office Accessories', person:'XXXXXX', due:'10th December 2020', status:"rejected"},
-        {title: 'Vehicles', person:'BBBBBB', due:'1st Feb 2021', status:"accepted"},
-        {title: 'Furnitures', person:'EEEEEEE', due:'25th Nov 2020', status:"pending"},
+      requests: [
+        {product_name: 'Product1', qr_code: 'rgyregrgr', quantity: '3', price: '200', request_type: 'checkin', status:'accepted'},
+        {product_name: 'Product2', qr_code: 'qweegrgr', quantity: '1', price: '600', request_type: 'checkin', status:'pending'},
+        {product_name: 'Product3', qr_code: 'dofegrgr', quantity: '20', price: '300', request_type: 'checkout', status:'accepted'},
+        {product_name: 'Product4', qr_code: 'boirgrgr', quantity: '11', price: '2100', request_type: 'checkin', status:'rejected'},
+        {product_name: 'Product5', qr_code: 'poeregrgr', quantity: '5', price: '900', request_type: 'checkout', status:'rejected'},
+        {product_name: 'Product6', qr_code: 'wpqregrgr', quantity: '6', price: '1300', request_type: 'checkout', status:'pending'},
+        {product_name: 'Product7', qr_code: 'ovbregrgr', quantity: '31', price: '980', request_type: 'checkin', status:'accepted'},
+        {product_name: 'Product8', qr_code: 'zxoregrgr', quantity: '19', price: '710', request_type: 'checkout', status:'pending'}
       ]
-    }
-  },
-  methods: {
-    sortBy(prop){
-      this.projects.sort((a,b) => a[prop] < b[prop] ? -1 : 1)
     }
   }
 }
 </script>
 
-<style>
-.project.accepted {
-  border-left: 4px solid darkgreen;
-}
-.project.rejected {
-  border-left: 4px solid tomato;
-}
-.project.pending {
-  border-left: 4px solid darkgoldenrod;
-}
-.v-chip.accepted {
-  background: darkgreen;
-}
-.v-chip.rejected {
-  background: tomato;
-}
-.v-chip.pending {
-  background: darkgoldenrod;
-}
+<style scoped>
+
 </style>
